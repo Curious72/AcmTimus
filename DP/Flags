@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    unsigned long long int A[46];
+    A[1]=2;
+    A[2]=2;
+    int i;
+    for(i=3;i<=45;i++)
+    {
+        A[i]=A[i-1]+A[i-2];
+    }
+    int t;
+    scanf("%d",&t);
+    cout<<A[t]<<endl;
+}
