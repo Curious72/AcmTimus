@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+
+    int n;
+    cin>>n;
+ int i,j;
+ int A[n+1][n+1];
+ int table[n+1];
+ for(i=1;i<=n;i++)
+        for(j=1;j<=n;j++)
+            cin>>A[i][j];
+
+
+            int k;
+            int bigmax=-100000000;
+            for(i=1;i<=n;i++)
+            {
+                 memset(table,0,sizeof table);
+
+                for(j=i;j<=n;j++)
+            {
+                for(k=1;k<=n;k++)
+                {
+                    table[k]=table[k]+A[k][j];
+
+                }
+                int max=table[1];
+                int maxsofar=table[1];
+
+                for(k=2;k<=n;k++)
+                {
+
+                    int sum=table[k]+maxsofar;
+                    if(sum<table[k])
+                    {
+                        if(maxsofar>max)
+                            max=maxsofar;
+                        maxsofar=table[k];
+
+
+
+                    }
+                    else
+                    {
+                        maxsofar=sum;
+                        if(maxsofar>max)
+                            max=maxsofar;
+
+                    }
+                      if(maxsofar>max)
+                            max=maxsofar;
+
+
+
+                }
+                if(bigmax<max)
+                    bigmax=max;
+
+
+
+            }
+            }
+    cout<<bigmax<<endl;
+            }
